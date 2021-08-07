@@ -380,6 +380,10 @@ Table of Contents
        version of the resource in its body, with the Version header set
        to the version requested by the client.
 
+     - If the request also contains a Parents header, then the server SHOULD
+       respond with a set of versions that connect the specified Parents
+       with the specified Version, and then close the connection.
+
      - If the server does not support historical versions, it MAY ignore
        the Version header and respond as usual, but MUST NOT include the
        Version header in its response.
@@ -390,10 +394,6 @@ Table of Contents
        MUST also contain a Subscribe header, and the server SHOULD send
        a set of versions connecting the Parents to the current Version,
        and then subscribe the client to future updates.
-
-     - If the request also contains a Version, then the server SHOULD
-       respond with a set of versions that connect the specified Parents
-       with the specified Version, and then close the connection.
 
      - If the server does not support historical versions, then it MAY
        ignore the Parents header, but MUST NOT include the Parents
